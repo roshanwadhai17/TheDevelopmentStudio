@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Level = () => {
+const Level1 = () => {
   return (
     <div className="w-full bg-shades-white h-[852px] overflow-hidden flex flex-col items-center justify-start py-[43px] px-0 box-border gap-[94px] text-left text-base text-default-systemblue-light font-subhead-sm-sh-sm-medium">
       <div className="self-stretch h-[42px] flex flex-row items-center justify-center">
@@ -41,7 +41,7 @@ const Level = () => {
           </div>
         </div>
       </div>
-      <Link href="/level1" passHref>
+      <Link href="/level2" passHref>
         <button
           className="cursor-pointer p-0 bg-transparent h-[86px] flex flex-col items-center justify-start relative hover:flex lg:items-center lg:justify-center transition-transform duration-300 transform hover:scale-110"
           id="RoundButton"
@@ -61,4 +61,4 @@ const Level = () => {
   );
 };
 
-export default Level;
+export default Level1;

@@ -8,6 +8,14 @@ const Transaction = ({ className = "", welton, prop, up, propTop }) => {
     };
   }, [propTop]);
 
+  // Function to get today's date in the required format
+  const getTodayDate = () => {
+    const today = new Date();
+    const hours = today.getHours().toString().padStart(2, '0');
+    const minutes = today.getMinutes().toString().padStart(2, '0');
+    return `Today at ${hours}:${minutes}`;
+  };
+
   return (
     <div
       className={`absolute top-[calc(50%_-_4px)] left-[calc(50%_-_181.5px)] w-[362px] h-16 cursor-pointer text-left text-sm text-text-and-icon-contentoninverse font-subhead-sm-sh-sm-medium ${className}`}
@@ -19,7 +27,7 @@ const Transaction = ({ className = "", welton, prop, up, propTop }) => {
         {welton}
       </div>
       <div className="absolute top-[54.69%] left-[17.68%] text-xs leading-[18px] text-text-color-contenttertiary">
-        Today at 09:20 am
+        {getTodayDate()}
       </div>
       <div className="absolute top-[32.81%] left-[76.52%] leading-[22px] font-medium text-right">
         {prop}

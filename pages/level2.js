@@ -7,146 +7,121 @@ const Level2 = () => {
   const [formData, setFormData] = useState({
     Name: "",
     Email: "",
+    Street: "",
+    City: "",
+    District: "",
     CountryCode: "",
-    PhoneNumber: "",
-    Gender: ""
+    PhoneNumber: ""
   });
 
   const onBackButtonClick = () => {
-    router.push("/level1");
+    router.push("/");
   };
 
-  const onButtonClick = () => {
+  const handleSave = () => {
+
+    console.log("Saving data:", formData);
     router.push("/level3");
+    alert("Saved successfully!");
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleCancel = () => {
+    console.log("Cancelled");
     setFormData({
-      ...formData,
-      [name]: value
+      Name: "",
+      Email: "",
+      Street: "",
+      City: "",
+      District: "",
+      CountryCode: "",
+      PhoneNumber: ""
     });
   };
 
   return (
-    <div className="w-full relative bg-shades-white h-[1005px] overflow-hidden text-left text-base text-text-color-contentsecondary font-subhead-sm-sh-sm-medium">
-      <div className="absolute top-[calc(50%_-_378.5px)] left-[calc(50%_-_180.5px)] flex flex-col items-center justify-center text-5xl">
-        <div className=" leading-[30px] font-medium">
-          <p className="m-0">Sign up with your email or </p>
-          <p className="m-0">phone number</p>
-        </div>
-      </div>
+    <div className="w-full relative bg-shades-white h-[879px] overflow-hidden text-center text-lg text-text-color-contentsecondary font-subhead-sm-sh-sm-medium">
       <input
-        className="m-0 absolute top-[calc(50%_+_37.5px)] left-[calc(50%_-_181.5px)] w-6 h-6"
-        type="checkbox"
-      />
-      <a className="[text-decoration:none] absolute top-[calc(50%_+_31.5px)] left-[calc(50%_-_147.5px)] text-xs leading-[18px] font-medium inline-block w-[328px] text-text-and-icon-contentdisbaled">
-        <p className="m-0">
-          <span>By signing up. you agree to the </span>
-          <span className="text-base-color-primary-color">
-            Terms of service
-          </span>
-          <span className="text-text-and-icon-contentdisbaled"> and</span>
-        </p>
-        <p className="m-0 text-base-color-primary-color">Privacy policy.</p>
-      </a>
-      <div className="absolute top-[calc(50%_+_181.5px)] left-[calc(50%_-_171.5px)] w-[343px] h-6 text-center text-text-and-icon-contentdisbaled">
-        <div className="absolute top-[calc(50%_-_12px)] left-[calc(50%_-_8.5px)] leading-[24px] font-medium">
-          or
-        </div>
-        <div className="absolute top-[calc(50%_-_0.5px)] left-[calc(50%_-_172px)] bg-text-and-icon-contentdisbaled box-border w-[157px] h-px border-t-[1px] border-solid border-text-and-icon-contentdisbaled" />
-        <div className="absolute top-[calc(50%_-_0.5px)] left-[calc(50%_+_15px)] bg-text-and-icon-contentdisbaled box-border w-[157px] h-px border-t-[1px] border-solid border-text-and-icon-contentdisbaled" />
-      </div>
-      <button className="cursor-pointer py-3 px-[88.5px] bg-[transparent] absolute top-[calc(50%_+_225.5px)] left-[calc(50%_-_180.5px)] rounded-lg flex flex-row items-center justify-center gap-[8px] border-[1.5px] border-solid border-border-divider-border">
-        <img
-          className="w-6 relative h-6 overflow-hidden shrink-0"
-          alt=""
-          src="/gmail.svg"
-        />
-        <div className="relative text-base leading-[24px] font-medium font-subhead-sm-sh-sm-medium text-text-color-contenttertiary text-center hover:cursor-auto">
-          Sign up with Gmail
-        </div>
-      </button>
-      <button
-        className="cursor-pointer py-3 px-[73px] bg-[transparent] absolute top-[calc(50%_+_293.5px)] left-[calc(50%_-_180.5px)] rounded-lg flex flex-row items-center justify-center gap-[8px] border-[1.5px] border-solid border-border-divider-border"
-        id="Button"
-      >
-        <img className="w-6 relative h-6" alt="" src="/facebook.svg" />
-        <div className="relative text-base leading-[24px] font-medium font-subhead-sm-sh-sm-medium text-text-color-contenttertiary text-center">
-          Sign up with Facebook
-        </div>
-      </button>
-      <button className="cursor-pointer py-3 px-[89px] bg-[transparent] absolute top-[calc(50%_+_361.5px)] left-[calc(50%_-_180.5px)] rounded-lg flex flex-row items-center justify-center gap-[8px] border-[1.5px] border-solid border-border-divider-border">
-        <img
-          className="w-6 relative h-6 overflow-hidden shrink-0"
-          alt=""
-          src="/apple.svg"
-        />
-        <div className="relative text-base leading-[24px] font-medium font-subhead-sm-sh-sm-medium text-text-color-contenttertiary text-center">
-          Sign up with Apple
-        </div>
-      </button>
-
-      <div className="absolute top-[calc(50%_+_419.5px)] left-[calc(50%_-_135.5px)] leading-[24px] font-medium text-center text-text-color-contenttertiary">
-        <span>Already have an account? </span>
-        <span className="text-primary-700">Sign in</span>
-      </div>
-
-      <div className="flex items-center justify-start absolute top-[calc(50%_-_126.5px)] left-[calc(50%_-_182.5px)]">
-        <input
-          className="[outline:none] font-medium font-subhead-sm-sh-sm-medium text-base bg-[transparent] rounded-lg box-border w-[70px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
-          name="CountryCode"
-          id="CountryCode"
-          placeholder="+91"
-          type="text"
-          value={formData.CountryCode}
-          onChange={handleChange}
-        />
-        <input
-          className="[outline:none] font-medium font-subhead-sm-sh-sm-medium text-base bg-[transparent] rounded-lg box-border w-[285px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled ml-[13px]"
-          name="PhoneNumber"
-          id="PhoneNumber"
-          placeholder="Phone Number"
-          type="text"
-          value={formData.PhoneNumber}
-          onChange={handleChange}
-        />
-      </div>
-
-      <input
-        className="[outline:none] font-medium font-subhead-sm-sh-sm-medium text-base bg-[transparent] absolute top-[calc(50%_-_292.5px)] left-[calc(50%_-_182.5px)] rounded-lg box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
+        className="outline-none font-medium font-subhead-sm-sh-sm-medium text-base bg-transparent absolute top-[calc(50%_-_164px)] left-[calc(50%_-_181.5px)] rounded-lg box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
         name="Name"
         id="Name"
-        placeholder="Name"
+        placeholder="Full Name"
         type="text"
         value={formData.Name}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, Name: e.target.value })}
       />
       <input
-        className="[outline:none] font-medium font-subhead-sm-sh-sm-medium text-base bg-[transparent] absolute top-[calc(50%_-_209.5px)] left-[calc(50%_-_182.5px)] rounded-lg box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
+        className="outline-none font-medium font-subhead-sm-sh-sm-medium text-base bg-transparent absolute top-[calc(50%_-_3.5px)] left-[calc(50%_-_181.5px)] rounded-lg box-border w-[363px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
         name="Email"
         id="Email"
         placeholder="Email"
         type="text"
         value={formData.Email}
-        onChange={handleChange}
+        onChange={(e) => setFormData({ ...formData, Email: e.target.value })}
       />
+      <input
+        className="outline-none font-medium font-subhead-sm-sh-sm-medium text-base bg-transparent absolute top-[calc(50%_+_76.5px)] left-[calc(50%_-_181.5px)] rounded-lg box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
+        name="Street"
+        id="Street"
+        placeholder="Street"
+        type="text"
+        value={formData.Street}
+        onChange={(e) => setFormData({ ...formData, Street: e.target.value })}
+      />
+
       <select
-        className="absolute top-[calc(50%_-_42.5px)] left-[calc(50%_-_182.5px)] rounded-lg bg-[transparent] box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 gap-[10px] font-subhead-sm-sh-sm-medium font-medium text-base text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
-        id="Gender"
-        name="Gender"
-        value={formData.Gender}
-        onChange={handleChange}
+        className="absolute top-[calc(50%_+_155.5px)] left-[calc(50%_-_181.5px)] rounded-lg bg-transparent box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 gap-[10px] font-subhead-sm-sh-sm-medium font-medium text-base text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
+        id="City"
+        defaultValue={formData.City}
+        onChange={(e) => setFormData({ ...formData, City: e.target.value })}
       >
-        <option value="" disabled hidden>Gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
+        <option value="" disabled hidden>
+          City
+        </option>
+        <option value="Pune">Pune</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Mumbai">Mumbai</option>
       </select>
-      
-      <div className="absolute top-[42px] left-[calc(50%_-_197.5px)] w-[393px] h-[42px] flex flex-row items-center justify-center text-right">
+
+      <select
+        className="absolute top-[calc(50%_+_240.5px)] left-[calc(50%_-_183.5px)] rounded-lg bg-transparent box-border w-[362px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 gap-[10px] font-subhead-sm-sh-sm-medium font-medium text-base text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
+        defaultValue={formData.District}
+        onChange={(e) => setFormData({ ...formData, District: e.target.value })}
+      >
+        <option value="" disabled hidden>
+          District
+        </option>
+        <option value="Pune">Pune</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Mumbai">Mumbai</option>
+      </select>
+
+      <div className="flex items-center justify-start absolute top-[calc(50%_-_83.5px)] left-[calc(50%_-_181.5px)]">
+        <input
+          className="outline-none font-medium font-subhead-sm-sh-sm-medium text-base bg-transparent rounded-lg box-border w-[70px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled"
+          name="CountryCode"
+          id="CountryCode"
+          placeholder="+91"
+          type="text"
+          value={formData.CountryCode}
+          onChange={(e) => setFormData({ ...formData, CountryCode: e.target.value })}
+        />
+        <input
+          className="outline-none font-medium font-subhead-sm-sh-sm-medium text-base bg-transparent rounded-lg box-border w-[285px] overflow-hidden flex flex-row items-center justify-start py-[18px] px-5 text-dimgray border-[1px] border-solid border-text-and-icon-contentdisbaled ml-[13px]"
+          name="PhoneNumber"
+          id="PhoneNumber"
+          placeholder="Phone Number"
+          type="text"
+          value={formData.PhoneNumber}
+          onChange={(e) => setFormData({ ...formData, PhoneNumber: e.target.value })}
+        />
+      </div>
+
+      <div className="absolute top-[39px] left-[calc(50%_-_196.5px)] w-[393px] h-[42px] flex flex-row items-center justify-center">
         <div className="self-stretch flex-1 flex flex-row items-center justify-start p-2">
           <button
-            className="cursor-pointer [border:none] p-0 bg-[transparent] flex flex-row items-center justify-start gap-[5px]"
+            className="cursor-pointer border-none p-0 bg-transparent flex flex-row items-center justify-start gap-[5px]"
             id="BackButton"
             onClick={onBackButtonClick}
           >
@@ -157,23 +132,47 @@ const Level2 = () => {
                 src="/angleleft1.svg"
               />
             </div>
-            <div className="relative text-base leading-[23px] font-subhead-sm-sh-sm-medium text-text-color-contentsecondary text-left hover:text-darkgray">
+            <div className="text-base leading-[23px] font-subhead-sm-sh-sm-medium text-text-color-contentsecondary text-left">
               Back
             </div>
           </button>
         </div>
-        <div className="self-stretch flex-1 flex flex-row items-center justify-end py-2 pr-4 pl-2">
-          <div className="w-[33px] relative leading-[23px] hidden">Skip</div>
+        <div className="w-[191px] flex flex-row items-center justify-center">
+          <div className="flex-1 leading-[25px] font-medium">Profile</div>
+        </div>
+        <div className="flex-1 flex flex-row items-center justify-end py-2 pr-4 pl-2 text-right text-base"></div>
+      </div>
+      <div className="absolute top-[calc(50%_-_315.5px)] left-[calc(50%_-_60.5px)] w-[121px] h-[121px]">
+        <div className="absolute top-[calc(50%_-_60.5px)] left-[calc(50%_-_60.5px)] rounded-[50%] bg-border-divider-border w-[121px] h-[121px]" />
+        <div className="absolute top-[calc(50%_+_29.5px)] left-[calc(50%_+_26.5px)] flex flex-row items-start justify-start">
+          <div className="flex flex-row items-center justify-center relative gap-[10px]">
+            <div className="w-[31px] relative rounded-[50%] bg-primary-700 h-[31px] [transform:_rotate(180deg)] z-[0] hover:bg-mediumseagreen-200 hover:cursor-pointer" />
+            <img
+              className="w-[23px] absolute !m-[0] top-[4px] left-[4px] h-[23px] object-cover z-[1]"
+              alt=""
+              src="/camera@2x.png"
+            />
+          </div>
         </div>
       </div>
+      <button
+        className="cursor-pointer border-none p-2.5 bg-transparent absolute top-[calc(50%_+_325.5px)] left-[calc(50%_-_2.5px)] flex flex-col items-center justify-center"
+        onClick={handleSave}
+      >
+        <div className="rounded-lg bg-primary-700 h-[54px] flex flex-row items-center justify-center py-[15.5px] px-[67px] box-border">
+          <div className="text-base leading-[23px] font-medium font-subhead-sm-sh-sm-medium text-shades-white text-center">
+            Save
+          </div>
+        </div>
+      </button>
 
       <button
-        className="cursor-pointer [border:none] p-2.5 bg-[transparent] absolute top-[calc(50%_+_103.5px)] left-[calc(50%_-_179.5px)] flex flex-col items-center justify-center"
-        onClick={onButtonClick}
+        className="cursor-pointer border-none p-2.5 bg-transparent absolute top-[calc(50%_+_325.5px)] left-[calc(50%_-_191.5px)] flex flex-col items-center justify-center"
+        onClick={handleCancel}
       >
-        <div className="w-[335px] rounded-lg bg-primary-700 h-[54px] flex flex-row items-center justify-center py-[15.5px] px-[67px] box-border hover:bg-mediumseagreen-200">
-          <div className=" text-base leading-[23px] font-medium font-subhead-sm-sh-sm-medium text-shades-white text-center">
-            Sign Up
+        <div className="h-[54px] rounded-lg box-border flex flex-row items-center justify-center py-[15.5px] px-[58px] border-[1px] border-solid border-primary-700">
+          <div className="text-base leading-[23px] font-medium font-subhead-sm-sh-sm-medium text-text-color-contentsecondary text-center">
+            Cancel
           </div>
         </div>
       </button>
